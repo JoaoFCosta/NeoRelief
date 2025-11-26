@@ -17,7 +17,7 @@
 
 ## Visão geral
 
-- 🛠️ **Funcionalidades:** Controle de doações e necessidades, exibição de histórico de doações e necessidades atendidas.
+- 🛠️ **Funcionalidades:** Controle de doações e necessidades, exibição de histórico de doações e necessidades atendidas e exibição de um gráfico de doações por tipo.
 
 ## Primeiros passos
 
