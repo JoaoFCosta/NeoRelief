@@ -6,7 +6,7 @@
   <img alt="React" src="https://img.shields.io/badge/React-61DAFB.svg?style=flat&logo=React&logoColor=black">
 </div>
 
-<a href="/assets/DocumentacaoApp.pdf">Documentação Técnica</a>
+<a href="/docs/DocumentacaoApp.pdf">Documentação Técnica</a>
 
 ## 📌 Índice
 
