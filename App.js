@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   StyleSheet,
 } from "react-native";
+import { BarChart } from "react-native-gifted-charts";
 
 export default function HomeScreen() {
   const [donates, setDonates] = useState([]);
@@ -41,8 +42,38 @@ export default function HomeScreen() {
     return <ActivityIndicator size="large" style={{ marginTop: 50 }} />;
   }
 
+  // =====================
+  // 📊 Preparar dados do gráfico
+  // =====================
+  const tiposCount = {};
+
+  donates.forEach((d) => {
+    if (!tiposCount[d.tipo]) tiposCount[d.tipo] = 0;
+    tiposCount[d.tipo]++;
+  });
+
+  const chartData = Object.keys(tiposCount).map((key) => ({
+    label: key,
+    value: tiposCount[key],
+  }));
+
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Gráfico de Doações por Tipo</Text>
+
+      <BarChart
+        data={chartData}
+        barWidth={35}
+        spacing={40}
+        noOfSections={4}
+        yAxisTextStyle={{ color: "#555" }}
+        xAxisLabelTextStyle={{ color: "#555", fontSize: 12 }}
+        isAnimated
+        animationDuration={900}
+      />
+      {/* ======================== */}
+      {/*   LISTA DE DOAÇÕES       */}
+      {/* ======================== */}
       <Text style={styles.title}>Doações</Text>
 
       <FlatList
@@ -59,6 +90,9 @@ export default function HomeScreen() {
         )}
       />
 
+      {/* ======================== */}
+      {/*   LISTA DE NECESSIDADES  */}
+      {/* ======================== */}
       <Text style={styles.title}>Necessidades</Text>
 
       <FlatList
